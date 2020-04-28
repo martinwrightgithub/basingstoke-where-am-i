@@ -32,9 +32,9 @@ $(document).ready(function() {
     count = count - 1;
     if (count <= 0) {
       console.log('finished');
-      if (round < 5) {
+      if (round < 10) {
         endRound();
-      } else if (round >= 5) {
+      } else if (round >= 10) {
         endGame();
       }
       clearInterval(counter);
@@ -69,7 +69,7 @@ $(document).ready(function() {
   // Functions
   // Reset Timer
   function resetTimer() {
-    count = 15;
+    count = 120;
     counter = setInterval(timer, 1000);
   }
 
@@ -101,7 +101,9 @@ $(document).ready(function() {
       window.guessArray = guessLatLongs.replace(/[\])}[{(]/g, '').split(',');
 
       // Calculate distance between points, and convert to kilometers
-      distance = Math.ceil(calcDistance(window.locArray[0], window.locArray[1], window.guessArray[0], window.guessArray[1]) / 1000);
+      distance = calcDistance(window.locArray[0], window.locArray[1], window.guessArray[0], window.guessArray[1]);
+
+      console.log("Distance is " + distance);
 
       // Calculate points awarded via guess proximity
       function inRange(x, min, max) {
@@ -139,9 +141,9 @@ $(document).ready(function() {
         points = 0;
       }
 
-      if (round < 5) {
+      if (round < 10) {
         endRound();
-      } else if (round >= 5) {
+      } else if (round >= 10) {
         endGame();
       }
 
