@@ -40,6 +40,7 @@ function svinitialize() {
       var panoramaOptions = {
         position: whoamiLocation,
         addressControl: false,
+        showRoadLabels: false,
         linksControl: false,
         pov: {
           heading: 270,
