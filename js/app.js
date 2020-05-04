@@ -69,7 +69,7 @@ $(document).ready(function() {
   // Functions
   // Reset Timer
   function resetTimer() {
-    count = 15;
+    count = 60;
     counter = setInterval(timer, 1000);
   }
 
@@ -101,7 +101,7 @@ $(document).ready(function() {
       window.guessArray = guessLatLongs.replace(/[\])}[{(]/g, '').split(',');
 
       // Calculate distance between points, and convert to kilometers
-      distance = Math.ceil(calcDistance(window.locArray[0], window.locArray[1], window.guessArray[0], window.guessArray[1]) / 1000);
+      distance = Math.ceil(calcDistance(window.locArray[0], window.locArray[1], window.guessArray[0], window.guessArray[1]));
 
       // Calculate points awarded via guess proximity
       function inRange(x, min, max) {
@@ -185,7 +185,7 @@ $(document).ready(function() {
       points = 0;
 
     } else {
-      $('#roundEnd').html('<p>Your guess was<br/><strong><h1>' + distance + '</strong>km</h1> away from the actual location.<br/><div id="roundMap"></div><br/> You have scored<br/><h1>' + roundScore + ' points</h1> this round!<br/><br/><button class="btn btn-primary closeBtn" type="button">Continue</button></p></p>');
+      $('#roundEnd').html('<p>Your guess was<br/><strong><h1>' + distance + '</strong>m</h1> away from the actual location.<br/><div id="roundMap"></div><br/> You have scored<br/><h1>' + roundScore + ' points</h1> this round!<br/><br/><button class="btn btn-primary closeBtn" type="button">Continue</button></p></p>');
       $('#roundEnd').fadeIn();
     }
 
